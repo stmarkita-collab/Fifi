@@ -1,0 +1,17 @@
+name: Jalankan Shell Script
+
+on: [push] # atau bisa menggunakan 'workflow_dispatch' agar bisa dijalankan manual
+
+jobs:
+  run-sh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Kode
+        uses: actions/checkout@v4
+
+      - name: Beri izin eksekusi ke file .sh
+        run: chmod +x ./run.sh
+
+      - name: Jalankan file .sh
+        run: sh ./run.sh
+        # atau menggunakan bash: bash ./run.sh
