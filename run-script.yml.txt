@@ -1,0 +1,18 @@
+name: Jalankan Shell Script
+
+on: 
+  push:
+  workflow_dispatch: # Menambahkan tombol agar bisa dijalankan manual dari GitHub
+
+jobs:
+  run-sh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Kode
+        uses: actions/checkout@v4
+
+      - name: Beri izin eksekusi ke file .sh
+        run: chmod +x ./wifi.sh # <--- GANTI DI SINI
+
+      - name: Jalankan file .sh
+        run: ./wifi.sh # <--- GANTI DI SINI
